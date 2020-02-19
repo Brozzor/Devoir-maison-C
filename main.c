@@ -10,6 +10,7 @@ void checkInput(int nb);
 void choiceTheme(int theme);
 void themeDateWithNoemie();
 void loadTheme(char name[]);
+void checkAnswer(int answer, int goodAnswer, char falseAnswer[]);
 
 int main()
 {
@@ -40,12 +41,25 @@ void checkInput(int nb)
     if (nb == 3)
     {
         printf("Vous avez decider de quitter !\nAurevoir\n");
-        system("exit");
+        exit(EXIT_SUCCESS);
     }
     else if (nb != 1 && nb != 2)
     {
         printf("Je te demande un simple chiffre et toi tu sais meme pas me répondre correctement !\n\"l'ordinateur alt f4 le programme\"\n");
-        system("exit");
+        exit(EXIT_SUCCESS);
+    }
+}
+
+void checkAnswer(int answer, int goodAnswer, char falseAnswer[])
+{
+    if (answer == goodAnswer)
+    {
+        return;
+    }
+    else
+    {
+        printf("%s\n", falseAnswer);
+        exit(EXIT_SUCCESS);
     }
 }
 
@@ -85,11 +99,30 @@ void themeDateWithNoemie()
 {
     char name[] = "Rencard avec noémie";
     int answer[7] = {0};
-    int goodAnswer[7] = {1, 1, 2, 1, 2, 2, 1};
+    int goodAnswer[7] = {1, 2, 2, 1, 2, 2, 1};
     loadTheme(name);
+    // start question 1
     askQuestion("Ludovik comme beaucoup rechercha l'amour d'un soir ou de sa vie ,il ce renda donc\nsur une application de rencontre ce nomant tinder \nil eu rapidement un match avec une dénommer noémie 23 ans ayant comme biographie \nun simple emoji peche puis aubergine suivie de l'emoji interdit au moins de 18ans \nludovik vu tout de suite en elle la femme de sa vie mais ce demanda si ce n'était pas trop beau\n",
                 "Engager la conversation",
                 "Ne pas engager la conversation");
     scanf("%i", &answer[0]);
     checkInput(answer[0]);
+    checkAnswer(answer[0], goodAnswer[0], "Noemie n'a pas fais le premier pas , vous etes seul jusqu'a votre mort !");
+    // end question 1
+    // start question 2
+    askQuestion("Vous venez d'engager la conversation avec noemie \n, elle vous a envoyer l'adresse d'un restaurant très chic de la capital mais vous etes pauvres \n",
+                "faire un crédit à la banque",
+                "lui proposer un macdo ");
+    scanf("%i", &answer[1]);
+    checkInput(answer[1]);
+    checkAnswer(answer[1], goodAnswer[1], "Vous etes déjà a découvert de plusieurs milliers d'euros la banque vous a refuser le crédit");
+    // end question 2
+    // start question 3
+    askQuestion("Noemie:\"Va pour un macdonald demain soir 19h\"\nTout emoustiller vous , vous préparez pour cette soirée pleine d'amour avec noemie mais une question vous trotte dans la tete que va telle pensez de vous .\nc'est vrai après tout cela fais bien longtemps que vous n'avez pas approcher de femelle comme celle ci \n",
+                "Vous mettre sur votre 31",
+                "Le jogging c'est pas si mal");
+    scanf("%i", &answer[2]);
+    checkInput(answer[2]);
+    checkAnswer(answer[2], goodAnswer[2], "QUand elle est arriver au macdo elle vous a demander quand arriver son menu maxi best of \n, vous etes passer pour un minable et vous etes enfuis en courrant bouuuuuuuu");
+    // end question 3
 }
