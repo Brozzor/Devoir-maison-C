@@ -66,6 +66,7 @@ void checkAnswer(int answer, int goodAnswer, char falseAnswer[])
 void askQuestion(char question[], char answer1[], char answer2[])
 {
     // cette fonction permet de ne pas redonder la manière de demander une réponse
+    printf("\n");
     printf("%s\n", question);
     printf("1. %s\n", answer1);
     printf("2. %s\n", answer2);
