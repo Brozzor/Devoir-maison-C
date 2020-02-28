@@ -127,3 +127,7 @@ void themeDateWithNoemie()
     checkAnswer(answer[2], goodAnswer[2], "QUand elle est arriver au macdo elle vous a demander quand arriver son menu maxi best of \n, vous etes passer pour un minable et vous etes enfuis en courrant bouuuuuuuu");
     // end question 3
 }
+void NeighborsCat()
+{
+  char name[] = "Le chat des voisins"; 
+}
